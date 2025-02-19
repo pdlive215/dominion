@@ -21,12 +21,14 @@ province = Victory(name="Province", cost=8, points=6)
 
 
 class Kingdom:
-    def __init__(self, cost, payload=0, action=0, buys=0)
+    def __init__(self, cost, cards=0, action=0, buys=0, payload=0, points=0)
         self.name = name
         self.cost = cost
-        self.payload = payload
+        self.cards = cards
         self.action = action
         self.buys = buys
+        self.payload = payload
+        self.points = points
 
 # sifter
 cellar = Kingdom(name="Cellar", cost=2, action=1)
@@ -50,6 +52,29 @@ village = Kingdom(name="Village", cost=3, action=2)
 
 # gain card costing up to 4
 workshop = Kingdom(name="Workshop", cost=3)
+
+# gain silver on top of deck; opponent places victory card on deck
+bureaucrat = Kingdom(name="Bureaucrat", cost=4)
+
+# increment points by size of deck / 10 (round down)
+gardens = Kingdom(name="Gardens", cost=4)
+
+# opponent discards down to three cards
+militia = Kingdom(name="Militia", cost=4, payload=2)
+
+# trash copper to gain payload of 3
+moneylender = Kingdom(name="Moneylender", cost=4)
+
+# discard a card for each empty supply pile
+poacher = Kingdom(name="Poacher", cost=4, cards=1, action=1, payload=1)
+
+# trash a card, gain another card costing +2
+remodel = Kingdom(name="Remodel", cost=4)
+
+smithy = Kingdom(name="Smithy", cost=4, cards=3)
+
+# play an action from hand twice
+throne_room = Kingdom(name="Throne_Room", cost=4)
 
 
 class Player:
